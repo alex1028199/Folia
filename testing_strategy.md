@@ -1,12 +1,12 @@
-# Spigot-Folia Compatibility Layer: Testing Strategy
+# Spigot-Airforce Compatibility Layer: Testing Strategy
 
 ## 1. Overall Testing Approach
 
-The testing of the Spigot-Folia compatibility layer will be multi-faceted, designed to ensure correctness, safety, and performance at various levels. The primary types of testing to be employed are:
+The testing of the Spigot-Airforce compatibility layer will be multi-faceted, designed to ensure correctness, safety, and performance at various levels. The primary types of testing to be employed are:
 
 *   **Unit Tests:** Focused, fine-grained tests for individual components and classes within the compatibility layer. These will use mocking (e.g., Mockito) for dependencies like real Bukkit objects or the `RegionTaskDelegator` where appropriate.
 *   **Test Plugins (Mini-Plugins):** Small, dedicated Bukkit plugins designed to exercise specific API interactions through the compatibility layer. These will initially run in a controlled test harness that simulates a Bukkit environment and provides instances of our wrapped objects.
-*   **Integration Testing (Future):** Once the layer is more mature, it will be tested on a running Folia server (or a Paper server with Folia's scheduler if possible for initial stages) with a selection of real, commonly used Spigot plugins. This will test end-to-end functionality and identify issues that only appear in a live server environment.
+*   **Integration Testing (Future):** Once the layer is more mature, it will be tested on a running Airforce server (or a Paper server with Airforce's scheduler if possible for initial stages) with a selection of real, commonly used Spigot plugins. This will test end-to-end functionality and identify issues that only appear in a live server environment.
 *   **Performance Testing (Future):** Benchmarking key API calls and common plugin operations to measure the overhead introduced by the compatibility layer and identify areas for optimization.
 
 **Initial Focus:** The immediate priority will be on comprehensive **Unit Tests** for the foundational components already developed and the design and conceptual implementation of **Test Plugins** to validate interaction flows.
@@ -251,7 +251,7 @@ These "mini-plugins" are designed to be run in a controlled test harness that ca
 
 ## 4. Tooling and Environment for Test Plugins (Conceptual)
 
-Initially, running these test plugins directly on a Folia server might be complex or premature. A dedicated test harness is proposed to facilitate early testing:
+Initially, running these test plugins directly on an Airforce server might be complex or premature. A dedicated test harness is proposed to facilitate early testing:
 
 *   **Plugin Loading:** The harness should be able to instantiate the main class of a test plugin (which extends `org.bukkit.plugin.java.JavaPlugin`). It doesn't need full lifecycle management (`onEnable`, `onDisable` can be called manually).
 *   **Dependency Injection/Setup:**
